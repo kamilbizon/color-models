@@ -127,6 +127,7 @@
     <ClInclude Include="Bar.h" />
     <ClInclude Include="CMYCircle.h" />
     <ClInclude Include="ColorCircle.h" />
+    <ClInclude Include="font.h" />
     <ClInclude Include="HSLCircle.h" />
     <ClInclude Include="HSVCircle.h" />
     <ClInclude Include="RGBCircle.h" />

@@ -10,22 +10,22 @@ public:
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-	int get_x_bar_position() const
-	{
-		return _x_bar_position;
-	}
-	int get_y_bar_position() const
-	{
-		return _y_bar_position;
-	}
-	int get_x_bar_size() const
-	{
-		return _x_bar_size;
-	}
-	int get_y_bar_size() const
-	{
-		return _y_bar_size;
-	}
+	//int get_x_bar_position() const
+	//{
+	//	return _x_bar_position;
+	//}
+	//int get_y_bar_position() const
+	//{
+	//	return _y_bar_position;
+	//}
+	//int get_x_bar_size() const
+	//{
+	//	return _x_bar_size;
+	//}
+	//int get_y_bar_size() const
+	//{
+	//	return _y_bar_size;
+	//}
 
 	unsigned char get_marker_position();
 	void set_marker_position(const int y);
