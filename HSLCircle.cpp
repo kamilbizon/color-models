@@ -53,15 +53,15 @@ void HSLCircle::fill_texture(unsigned char lightness)
 					float tmp1, tmp2;
 
 					if (lightness_normalized < 0.5)
-						tmp2 = lightness_normalized * (1.0 + saturation);
+						tmp2 = lightness_normalized * (1.0f + saturation);
 					else
 						tmp2 = (lightness_normalized + saturation) - (saturation * lightness_normalized);
 
-					tmp1 = 2.0 * lightness_normalized - tmp2;
+					tmp1 = 2.0f * lightness_normalized - tmp2;
 
-					red = (unsigned char)(255.0 * hue_to_rgb(tmp1, tmp2, hue + (1.0 / 3.0)));
+					red = (unsigned char)(255.0 * hue_to_rgb(tmp1, tmp2, hue + (1.0f / 3.0f)));
 					green = (unsigned char)(255.0 * hue_to_rgb(tmp1, tmp2, hue));
-					blue = (unsigned char)(255.0 * hue_to_rgb(tmp1, tmp2, hue - (1.0 / 3.0)));
+					blue = (unsigned char)(255.0 * hue_to_rgb(tmp1, tmp2, hue - (1.0f / 3.0f)));
 				}
 
 				draw_to_color_pixels(x, y, red, green, blue, 255);
@@ -86,7 +86,7 @@ float HSLCircle::hue_to_rgb(float tmp1, float tmp2, float tmp_hue)
 		return (tmp2);
 
 	if ((3.0 * tmp_hue) < 2.0)
-		return (tmp1 + (tmp2 - tmp1) * ((2.0 / 3.0) - tmp_hue) * 6.0);
+		return (tmp1 + (tmp2 - tmp1) * ((2.0f / 3.0f) - tmp_hue) * 6.0f);
 
 	return (tmp1);
 }

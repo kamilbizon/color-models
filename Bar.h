@@ -46,6 +46,8 @@ private:
 	const int _x_bar_position = 700;
 	const int _y_bar_position = 50;
 
+	sf::VertexArray* _marker;
+
 	void fill_bar_texture();
 	inline void draw_to_color_pixels(unsigned int x, unsigned int y,
 		unsigned char r, unsigned char g, unsigned char b, unsigned char alfa);

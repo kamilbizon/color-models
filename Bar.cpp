@@ -13,18 +13,26 @@ Bar::Bar()
 	_bar_pixels = new sf::Uint8[_x_bar_size * _y_bar_size * 4];
 	fill_bar_texture();
 
-	_marker_position = 130;
+	_marker = new sf::VertexArray(sf::Lines, 4);
+	for (int i = 0; i < 4; i++)
+		(*_marker)[i].color = sf::Color::Black;
 
+	set_marker_position(_y_bar_position + 130);
 }
 
 
 Bar::~Bar()
 {
+	delete _bar_texture;
+	delete _bar;
+	delete _bar_pixels;
+	delete _marker;
 }
 
 void Bar::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(*_bar);
+	target.draw(*_marker);
 }
 
 unsigned char Bar::get_marker_position()
@@ -35,6 +43,10 @@ unsigned char Bar::get_marker_position()
 void Bar::set_marker_position(const int y)
 {
 	_marker_position = y - _y_bar_position;
+	(*_marker)[0].position = sf::Vector2f((float)_x_bar_position - 15, (float)y);
+	(*_marker)[1].position = sf::Vector2f((float)_x_bar_position - 5, (float)y);
+	(*_marker)[2].position = sf::Vector2f((float)_x_bar_position + (float)_x_bar_size + 5.0f, (float)y);
+	(*_marker)[3].position = sf::Vector2f((float)_x_bar_position + (float)_x_bar_size + 15.0f, (float)y);
 }
 
 bool Bar::is_inside_bar(const int x, const int y)
