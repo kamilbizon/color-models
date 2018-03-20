@@ -2,7 +2,10 @@
 #include <SFML\Graphics.hpp>
 #include "RGBCircle.h"
 #include "CMYCircle.h"
+#include "HSLCircle.h"
 #include "Bar.h"
+
+#include <iostream>
 
 int main()
 {
@@ -14,12 +17,12 @@ int main()
 
 	ColorCircle* rgb = new RGBCircle;
 	ColorCircle* cmy = new CMYCircle;
+	ColorCircle* hsl = new HSLCircle;
+
 	Bar* bar = new Bar();
 
 	bool is_left_mouse_button_clicked = false;
-
-	int x_mouse = 0;
-	int y_mouse = 0;
+	bool flag = true;
 
 	//inicjalizacja 
 	clock.restart().asMilliseconds();
@@ -40,7 +43,10 @@ int main()
 				if (is_left_mouse_button_clicked)
 				{
 					if (bar->is_inside_bar(event.mouseMove.x, event.mouseMove.y))
+					{
 						bar->set_marker_position(event.mouseMove.y);
+						flag = true;
+					}
 				}
 
 			if (event.type == sf::Event::MouseButtonReleased)
@@ -50,16 +56,26 @@ int main()
 					is_left_mouse_button_clicked = false;
 
 					if (bar->is_inside_bar(event.mouseButton.x, event.mouseButton.y))
+					{
 						bar->set_marker_position(event.mouseButton.y);
+						flag = true;
+					}
 				}
 			}
 		}
 		//tu wyrysowaæ wszystko na ekran
-		rgb->fill_texture(bar->get_marker_position());
-		cmy->fill_texture(bar->get_marker_position());
+		if (flag)
+		{
+			rgb->fill_texture(bar->get_marker_position());
+			cmy->fill_texture(bar->get_marker_position());
+			hsl->fill_texture(bar->get_marker_position());
+
+			flag = false;
+		}
 
 		window.draw(*rgb);
 		window.draw(*cmy);
+		window.draw(*hsl);
 		window.draw(*bar);
 
 		//tu wypisaæ na ekran wartoœæ FPS
@@ -68,6 +84,7 @@ int main()
 			FPS = (unsigned int)((float)frame_counter / clock.getElapsedTime().asSeconds());
 			clock.restart();
 			frame_counter = 0;
+			std::cout << FPS << std::endl;
 		}
 		frame_counter++;
 

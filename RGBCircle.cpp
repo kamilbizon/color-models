@@ -37,8 +37,7 @@ void RGBCircle::fill_texture(unsigned char blue)
 				unsigned char red = (unsigned char)(255 * part_of_radius);
 				unsigned char green = (unsigned char)(255 * part_of_full_circle);
 
-				draw_to_color_pixels(x, y,
-					red, green, blue, 255);
+				draw_to_color_pixels(x, y, red, green, blue, 255);
 			}
 		}
 

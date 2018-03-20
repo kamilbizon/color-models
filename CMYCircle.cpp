@@ -44,8 +44,7 @@ void CMYCircle::fill_texture(unsigned char yellow)
 				unsigned char green = (unsigned char)((1 - magenta) * 255);
 				unsigned char blue = (unsigned char)((1 - yellow_normalized) * 255);
 
-				draw_to_color_pixels(x, y,
-					red, green, blue, 255);
+				draw_to_color_pixels(x, y, red, green, blue, 255);
 			}
 		}
 
