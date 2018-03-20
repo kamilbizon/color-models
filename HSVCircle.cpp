@@ -16,6 +16,8 @@ HSVCircle::~HSVCircle()
 
 void HSVCircle::fill_texture(unsigned char value)
 {
+	parameter = (float)value / 255.0f;
+
 	for (int x = 0; x<256; ++x)
 		for (int y = 0; y < 256; ++y)
 		{

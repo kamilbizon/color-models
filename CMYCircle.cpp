@@ -15,6 +15,8 @@ CMYCircle::~CMYCircle()
 
 void CMYCircle::fill_texture(unsigned char yellow)
 {
+	parameter = 100.0f * ((float)yellow / 255.0f);
+
 	for (int x = 0; x<256; ++x)
 		for (int y = 0; y < 256; ++y)
 		{

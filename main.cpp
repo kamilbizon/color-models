@@ -81,12 +81,16 @@ int main()
 
 		window.draw(*rgb);
 		printer.print(window, "RGB", 400, 350);
+		printer.print(window, "B=" + std::to_string((int)(rgb->get_parameter())), 650, 550);
 		window.draw(*cmy);
 		printer.print(window, "CMY", 50, 350);
+		printer.print(window, "Y=" + std::to_string((int)cmy->get_parameter()) + "%", 300, 550);
 		window.draw(*hsl);
 		printer.print(window, "HSL", 50, 50);
+		printer.print(window, "L=" + std::to_string(hsl->get_parameter()).substr(0, 5), 290, 270);
 		window.draw(*hsv);
 		printer.print(window, "HSV", 400, 50);
+		printer.print(window, "V=" + std::to_string(hsv->get_parameter()).substr(0, 5), 620, 270);
 		window.draw(*bar);
 
 		//tu wypisaæ na ekran wartoœæ FPS

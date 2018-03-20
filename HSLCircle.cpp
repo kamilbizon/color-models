@@ -15,6 +15,8 @@ HSLCircle::~HSLCircle()
 
 void HSLCircle::fill_texture(unsigned char lightness)
 {
+	parameter = (float)lightness / 255.0f;
+
 	for (int x = 0; x<256; ++x)
 		for (int y = 0; y < 256; ++y)
 		{

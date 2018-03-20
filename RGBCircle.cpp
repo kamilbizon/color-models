@@ -14,11 +14,11 @@ RGBCircle::~RGBCircle()
 
 void RGBCircle::fill_texture(unsigned char blue)
 {
+	parameter = (float)blue;
+
 	for (int x = 0; x<256; ++x)
 		for (int y = 0; y < 256; ++y)
 		{
-			this->blue = blue;
-
 			//transformate SFML coordinates to Cartesian
 			float x_cartesian = x - _centre_coordinates;
 			float y_cartesian = _centre_coordinates - y;

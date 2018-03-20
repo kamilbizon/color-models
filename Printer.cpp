@@ -18,6 +18,6 @@ Printer::~Printer()
 void Printer::print(sf::RenderTarget& target, std::string text_to_print, int x_position, int y_position)
 {
 	text.setString(text_to_print);
-	text.setPosition(x_position, y_position);
+	text.setPosition((float)x_position, (float)y_position);
 	target.draw(text);
 }
