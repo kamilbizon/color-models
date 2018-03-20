@@ -1,5 +1,7 @@
 #pragma once
 #include "ColorCircle.h"
+
+
 class HSLCircle :public ColorCircle
 {
 public:

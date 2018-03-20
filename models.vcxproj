@@ -119,6 +119,7 @@
     <ClCompile Include="CMYCircle.cpp" />
     <ClCompile Include="ColorCircle.cpp" />
     <ClCompile Include="HSLCircle.cpp" />
+    <ClCompile Include="HSVCircle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RGBCircle.cpp" />
   </ItemGroup>
@@ -127,6 +128,7 @@
     <ClInclude Include="CMYCircle.h" />
     <ClInclude Include="ColorCircle.h" />
     <ClInclude Include="HSLCircle.h" />
+    <ClInclude Include="HSVCircle.h" />
     <ClInclude Include="RGBCircle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

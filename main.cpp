@@ -3,6 +3,7 @@
 #include "RGBCircle.h"
 #include "CMYCircle.h"
 #include "HSLCircle.h"
+#include "HSVCircle.h"
 #include "Bar.h"
 
 #include <iostream>
@@ -18,6 +19,7 @@ int main()
 	ColorCircle* rgb = new RGBCircle;
 	ColorCircle* cmy = new CMYCircle;
 	ColorCircle* hsl = new HSLCircle;
+	ColorCircle* hsv = new HSVCircle;
 
 	Bar* bar = new Bar();
 
@@ -69,6 +71,7 @@ int main()
 			rgb->fill_texture(bar->get_marker_position());
 			cmy->fill_texture(bar->get_marker_position());
 			hsl->fill_texture(bar->get_marker_position());
+			hsv->fill_texture(bar->get_marker_position());
 
 			flag = false;
 		}
@@ -76,6 +79,7 @@ int main()
 		window.draw(*rgb);
 		window.draw(*cmy);
 		window.draw(*hsl);
+		window.draw(*hsv);
 		window.draw(*bar);
 
 		//tu wypisaæ na ekran wartoœæ FPS

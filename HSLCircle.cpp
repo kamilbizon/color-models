@@ -39,6 +39,7 @@ void HSLCircle::fill_texture(unsigned char lightness)
 				float hue = part_of_full_circle;
 				float lightness_normalized = (float)((float)lightness / 255.0); // <0, 1>
 
+				// convert hsl to rgb
 				unsigned char red, green, blue;
 				
 				if (saturation <= 1e-10)
