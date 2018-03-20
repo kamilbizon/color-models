@@ -32,15 +32,17 @@ void CMYCircle::fill_texture(unsigned char yellow)
 				if (y > 128) // if angle is bigger than PI (acos return <0, PI>)
 					angle_radians = (float)(2.0 * M_PI) - angle_radians;
 
-				float part_of_full_circle = angle_radians / (float)(2.0 * M_PI); // magenta
-				float part_of_radius = distance_from_centre / _radius; // cyan
+				float part_of_full_circle = angle_radians / (float)(2.0 * M_PI);
+				float part_of_radius = distance_from_centre / _radius;
 
-				// conver cmy to rgb
-				unsigned char red = (1 - part_of_radius) * 255;
-				unsigned char green = (1 - part_of_full_circle) * 255;
+				float cyan = part_of_radius;
+				float magenta = part_of_full_circle;
+				float yellow_normalized = (float)((float)yellow / 255.0); // <0, 1>
 
-				float yellow_0_1 = (float)yellow / 255.0;
-				unsigned char blue = (1 - yellow_0_1) * 255;
+				// convert cmy to rgb
+				unsigned char red = (unsigned char)((1 - cyan) * 255);
+				unsigned char green = (unsigned char)((1 - magenta) * 255);
+				unsigned char blue = (unsigned char)((1 - yellow_normalized) * 255);
 
 				draw_to_color_pixels(x, y,
 					red, green, blue, 255);
