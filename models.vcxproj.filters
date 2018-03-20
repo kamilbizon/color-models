@@ -36,6 +36,12 @@
     <ClCompile Include="HSVCircle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FPS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Printer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorCircle.h">
@@ -57,6 +63,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FPS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Printer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

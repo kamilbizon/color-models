@@ -9,5 +9,8 @@ public:
 	~RGBCircle();
 
 	virtual void fill_texture(unsigned char blue);
+
+private: 
+	unsigned char blue;
 };
 

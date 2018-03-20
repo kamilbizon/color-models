@@ -118,9 +118,11 @@
     <ClCompile Include="Bar.cpp" />
     <ClCompile Include="CMYCircle.cpp" />
     <ClCompile Include="ColorCircle.cpp" />
+    <ClCompile Include="FPS.cpp" />
     <ClCompile Include="HSLCircle.cpp" />
     <ClCompile Include="HSVCircle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Printer.cpp" />
     <ClCompile Include="RGBCircle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -128,8 +130,10 @@
     <ClInclude Include="CMYCircle.h" />
     <ClInclude Include="ColorCircle.h" />
     <ClInclude Include="font.h" />
+    <ClInclude Include="FPS.h" />
     <ClInclude Include="HSLCircle.h" />
     <ClInclude Include="HSVCircle.h" />
+    <ClInclude Include="Printer.h" />
     <ClInclude Include="RGBCircle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

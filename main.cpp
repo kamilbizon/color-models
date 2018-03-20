@@ -5,23 +5,16 @@
 #include "CMYCircle.h"
 #include "HSLCircle.h"
 #include "HSVCircle.h"
+#include "FPS.h"
+#include "Printer.h"
 #include "Bar.h"
-#include "font.h"
 
 int main()
 {
 	sf::Clock clock;
 	sf::Time time = sf::Time::Zero;
-	unsigned int FPS = 0, frame_counter = 0;
-	sf::Text fps;
-	sf::Font font;
-	font.loadFromMemory(font_data, font_data_size);
-	fps.setFont(font);
-	fps.setCharacterSize(12);
-	fps.setFillColor(sf::Color::Black);
-	fps.setPosition(700, 350);
-	fps.setString(std::to_string(FPS) + " FPS");
-
+	FPS fps;
+	Printer printer;
 
 	sf::RenderWindow window(sf::VideoMode(800, 650), "GFK Lab 01", sf::Style::Titlebar | sf::Style::Close);
 
@@ -87,22 +80,25 @@ int main()
 		}
 
 		window.draw(*rgb);
+		printer.print(window, "RGB", 400, 350);
 		window.draw(*cmy);
+		printer.print(window, "CMY", 50, 350);
 		window.draw(*hsl);
+		printer.print(window, "HSL", 50, 50);
 		window.draw(*hsv);
+		printer.print(window, "HSV", 400, 50);
 		window.draw(*bar);
 
 		//tu wypisaæ na ekran wartoœæ FPS
 		if (clock.getElapsedTime().asSeconds() >= 1.0f)
 		{
-			FPS = (unsigned int)((float)frame_counter / clock.getElapsedTime().asSeconds());
+			fps.set_FPS(clock.getElapsedTime().asSeconds());
 			clock.restart();
-			frame_counter = 0;
+			fps.set_zero_counter();
 
-			fps.setString(std::to_string(FPS) + " FPS");
 		}
-		frame_counter++;
-		window.draw(fps);
+		fps.increment_counter();
+		printer.print(window, "FPS = " + std::to_string(fps.get_FPS()), 700, 350);
 
 		window.display();
 	}

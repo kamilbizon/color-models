@@ -1,4 +1,6 @@
 #pragma once
+
+#include <string>
 #include<SFML/Graphics.hpp>
 #define M_PI 3.141592
 
