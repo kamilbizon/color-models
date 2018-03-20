@@ -43,8 +43,8 @@ private:
 	const int _x_bar_size = 40;
 	const int _y_bar_size = 256;
 
-	const int _x_bar_position = 400;
-	const int _y_bar_position = 100;
+	const int _x_bar_position = 700;
+	const int _y_bar_position = 50;
 
 	void fill_bar_texture();
 	inline void draw_to_color_pixels(unsigned int x, unsigned int y,

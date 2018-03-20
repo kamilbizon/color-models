@@ -1,5 +1,4 @@
 #include "Bar.h"
-#include <iostream>
 
 
 Bar::Bar()
@@ -8,7 +7,7 @@ Bar::Bar()
 	_bar_texture->create(_x_bar_size, _y_bar_size);
 
 	_bar = new sf::RectangleShape(sf::Vector2f((float)_x_bar_size, (float)_y_bar_size));
-	_bar->setPosition(_x_bar_position, _y_bar_position);
+	_bar->setPosition(sf::Vector2f((float)_x_bar_position, (float)_y_bar_position));
 	_bar->setTexture(_bar_texture);
 
 	_bar_pixels = new sf::Uint8[_x_bar_size * _y_bar_size * 4];
@@ -36,7 +35,6 @@ unsigned char Bar::get_marker_position()
 void Bar::set_marker_position(const int y)
 {
 	_marker_position = y - _y_bar_position;
-	std::cout << (unsigned int)_marker_position << std::endl;
 }
 
 bool Bar::is_inside_bar(const int x, const int y)

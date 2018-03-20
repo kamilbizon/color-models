@@ -1,6 +1,7 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 #include "RGBCircle.h"
+#include "CMYCircle.h"
 #include "Bar.h"
 
 int main()
@@ -12,6 +13,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(800, 650), "GFK Lab 01", sf::Style::Titlebar | sf::Style::Close);
 
 	ColorCircle* rgb = new RGBCircle;
+	ColorCircle* cmy = new CMYCircle;
 	Bar* bar = new Bar();
 
 	bool is_left_mouse_button_clicked = false;
@@ -54,9 +56,10 @@ int main()
 		}
 		//tu wyrysowaæ wszystko na ekran
 		rgb->fill_texture(bar->get_marker_position());
-
+		cmy->fill_texture(bar->get_marker_position());
 
 		window.draw(*rgb);
+		window.draw(*cmy);
 		window.draw(*bar);
 
 		//tu wypisaæ na ekran wartoœæ FPS
@@ -72,6 +75,7 @@ int main()
 	}
 
 	delete rgb;
+	delete cmy;
 	delete bar;
 
 	return 0;

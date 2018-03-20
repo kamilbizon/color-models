@@ -116,12 +116,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bar.cpp" />
+    <ClCompile Include="CMYCircle.cpp" />
     <ClCompile Include="ColorCircle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RGBCircle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bar.h" />
+    <ClInclude Include="CMYCircle.h" />
     <ClInclude Include="ColorCircle.h" />
     <ClInclude Include="RGBCircle.h" />
   </ItemGroup>

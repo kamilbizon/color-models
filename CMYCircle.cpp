@@ -1,18 +1,19 @@
-#include "RGBCircle.h"
+#include "CMYCircle.h"
 
 
 
-RGBCircle::RGBCircle(): ColorCircle()
+CMYCircle::CMYCircle(): ColorCircle()
 {
 	fill_texture(0);
-	_color_circle->setPosition(400, 350);
+	_color_circle->setPosition(50, 350);
 }
 
 
-RGBCircle::~RGBCircle()
-{}
+CMYCircle::~CMYCircle()
+{
+}
 
-void RGBCircle::fill_texture(unsigned char blue)
+void CMYCircle::fill_texture(unsigned char yellow)
 {
 	for (int x = 0; x<256; ++x)
 		for (int y = 0; y < 256; ++y)
@@ -31,11 +32,15 @@ void RGBCircle::fill_texture(unsigned char blue)
 				if (y > 128) // if angle is bigger than PI (acos return <0, PI>)
 					angle_radians = (float)(2.0 * M_PI) - angle_radians;
 
-				float part_of_full_circle = angle_radians / (float)(2.0 * M_PI);
-				float part_of_radius = distance_from_centre / _radius;
+				float part_of_full_circle = angle_radians / (float)(2.0 * M_PI); // magenta
+				float part_of_radius = distance_from_centre / _radius; // cyan
 
-				unsigned char red = (unsigned char)(255 * part_of_radius);
-				unsigned char green = (unsigned char)(255 * part_of_full_circle);
+				// conver cmy to rgb
+				unsigned char red = (1 - part_of_radius) * 255;
+				unsigned char green = (1 - part_of_full_circle) * 255;
+
+				float yellow_0_1 = (float)yellow / 255.0;
+				unsigned char blue = (1 - yellow_0_1) * 255;
 
 				draw_to_color_pixels(x, y,
 					red, green, blue, 255);
